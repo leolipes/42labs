@@ -6,22 +6,26 @@
 /*   By: lfilipe- <lfilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 23:53:04 by lfilipe-          #+#    #+#             */
-/*   Updated: 2022/02/24 01:39:50 by lfilipe-         ###   ########.fr       */
+/*   Updated: 2022/02/24 14:44:34 by lfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <api.h>
 
+char	*g_buffer;
+
 static void	handler_request(struct mg_connection *connection, int ev, void *ev_data, void *fn_data)
 {
-	struct mg_http_message *request;
+	/*struct mg_connection *connection - A connection that received an event*/
 
-	request = (struct mg_http_message *)ev_data;
+	/*int event - An event number, defined in mongoose.h. For example, when data arrives on an inbound connection, ev would be MG_EV_READ*/
 
-	if (ev == MG_EV_HTTP_MSG)
-	{
-		router(connection, request);
-	}
+	/*void *ev_data - Points to the event-specific data, and it has a different meaning for different events. The exact meaning of ev_data is described for each event. Protocol-specific events usually have ev_data pointing to structures that hold protocol-specific information*/
+
+	/*void *fn_data - A user-defined pointer for the connection, which is a placeholder for application-specific data. This fn_data pointer is set during the *_listen() or *_connect() call, and it is stored in the c->fn_data.*/
+
+	if (ev == MG_EV_HTTP_MSG)//HTTP request/response || struct mg_http_message *
+		router(connection, (struct mg_http_message *) ev_data);
 }
 
 int	main(int argc, char *argv[])
