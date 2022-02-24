@@ -24,4 +24,7 @@ static void	handler_request(struct mg_connection *connection, int ev, void *ev_d
 //controller
 void	router(struct mg_connection *connection, struct mg_http_message *request);
 
+//register logs in an achived
+void	add_log(char *method, char *route, int status);
+
 #endif

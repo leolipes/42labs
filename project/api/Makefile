@@ -11,12 +11,14 @@ PATH_MAIN = $(PATH_SRCS)server/
 PATH_ROUTER = $(PATH_SRCS)router/
 PATH_LIB = $(PATH_SRCS)lib/
 PATH_REQUEST = $(PATH_SRCS)request/
+PATH_LOG = $(PATH_SRCS)log/
 PATH_OBJS = ./objs/
 
-SRCS =	$(PATH_MAIN)main.c\
-		$(PATH_LIB)mongoose.c\
-		$(PATH_REQUEST)request.c\
-		$(PATH_ROUTER)router.c
+SRCS =	$(PATH_MAIN)main.c \
+		$(PATH_LIB)mongoose.c \
+		$(PATH_REQUEST)request.c \
+		$(PATH_ROUTER)router.c \
+		$(PATH_LOG)log.c
 
 OBJS = $(patsubst $(PATH_SRCS)%.c, $(PATH_OBJS)%.o, $(SRCS))
 
@@ -31,6 +33,7 @@ $(PATH_OBJS)%.o: $(PATH_SRCS)%.c
 	@mkdir -p $(PATH_OBJS)router
 	@mkdir -p $(PATH_OBJS)lib
 	@mkdir -p $(PATH_OBJS)request
+	@mkdir -p $(PATH_OBJS)log
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
