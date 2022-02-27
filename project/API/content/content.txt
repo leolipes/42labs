@@ -1,18 +1,1 @@
-{
-    "error": false,
-    "category": "Misc",
-    "type": "twopart",
-    "setup": "I WRITE MY JOKES IN CAPITALS.",
-    "delivery": "THIS ONE WAS WRITTEN IN PARIS.",
-    "flags": {
-        "nsfw": false,
-        "religious": false,
-        "political": false,
-        "racist": false,
-        "sexist": false,
-        "explicit": false
-    },
-    "id": 78,
-    "safe": true,
-    "lang": "en"
-}
+{"activity":"Plant a tree","type":"recreational","participants":1,"price":0.3,"link":"","key":"1942393","accessibility":0.3}

@@ -36,14 +36,15 @@ void	show_table(void)
 	FILE	*log;
 	char	line[1024];
 	char	**key_value;
+	int		index;
 
 	log = fopen("../API/log/log.log", "r");
 
 	if(log)
 	{
-		printf("_______________________________________________________________\n\n");
-		printf("|    Method\t|     Path\t|      Time Request\t|Status|\n");
-		printf("_______________________________________________________________\n\n");
+		printf("________________________________________________________________________________\n\n");
+		printf("|    Method\t|     Path\t|              Time Request\t\t|Status|\n");
+		printf("________________________________________________________________________________\n\n");
 		while(fgets(line, 1024, log))
 		{
 			if(line[0] == '\n')
@@ -53,7 +54,12 @@ void	show_table(void)
 			}
 			if (line[strlen(line) - 1] == '\n')
 				line[strlen(line) - 1] = 0;
-			key_value = ft_split(line, ':');
+			index = 0;
+			while(line[index] && line[index] != ':')
+				index++;
+			if (line[index] == ':')
+				line[index] = 1;
+			key_value = ft_split(line, 1);
 			printf("|%s\t\t", key_value[1]);
 			free_buffer(key_value);
 		}
