@@ -6,17 +6,16 @@
 # define HTTP_UNAUTHORIZED 401
 # define HTTP_NOT_FOUND 404
 
-#include <curl/curl.h>
+#include <curl/curl.h> //libcurl
 #include "mongoose.h"
 #include <stdlib.h>
 #include <string.h>
-#include <stdio.h>
-
-//when i got data from get data
-size_t	got_data(char *buffer, size_t itemsize, size_t nitems, void *userdata);
 
 //get data with request
-int	get_data(void);
+int	get_content(void);
+
+void	show_content(struct mg_connection *connection,
+			struct mg_http_message *request);
 
 //handle when I get a request
 static void	handler_request(struct mg_connection *connection, int ev, void *ev_data, void *fn_data);
@@ -26,5 +25,9 @@ void	router(struct mg_connection *connection, struct mg_http_message *request);
 
 //register logs in an achived
 void	add_log(char *method, char *route, int status);
+
+//char	**ft_split(char const *s, char c);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strjoin(char const *s1, char const *s2);
 
 #endif

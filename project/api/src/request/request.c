@@ -1,27 +1,29 @@
 #include <api.h>
 
-extern char	*g_buffer;
+extern FILE *g_content;
+extern char	*url;
 
-size_t	got_data(char *buffer, size_t itemsize, size_t nitems, void *userdata)
-{
-	size_t	bytes = itemsize * nitems;
-	g_buffer = strdup(buffer);
-	return bytes;
-}
-
-int	get_data(void)
+int	get_content(void)
 {
 	CURL *curl;
 	CURLcode result;
 
+	g_content = fopen("./content/content.txt", "wb");
 	curl = curl_easy_init();
 	if (curl)
 	{
-		curl_easy_setopt(curl, CURLOPT_URL, "https://http.cat");
-		curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, got_data);
+		curl_easy_setopt(curl, CURLOPT_URL, url);
+		curl_easy_setopt(curl, CURLOPT_WRITEDATA, g_content);
+		curl_easy_setopt(curl, CURLOPT_FAILONERROR, 1L);//fix HTTP errors
 		result = curl_easy_perform(curl);
+
+		if (result == CURLE_OK)
+			printf("Site content downloaded successfully!\nTo view the content of the site go to: ./content\n");
 		if (result != CURLE_OK)
-			fprintf(stderr, "curl_easy_perform() failed: %s\n", curl_easy_strerror(result));
+			fprintf(stderr, "ERROR: %s\n :c", curl_easy_strerror(result));
+		/*The curl library by default doesn't consider HTTP errors such
+		404 file not found as real errors, but I fiz it*/
+		fclose(g_content);
 		curl_easy_cleanup(curl);
 	}
 	return EXIT_SUCCESS;
