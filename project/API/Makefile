@@ -9,7 +9,7 @@ RM = rm -rf
 PATH_SRCS = ./src/
 PATH_MAIN = $(PATH_SRCS)server/
 PATH_ROUTER = $(PATH_SRCS)router/
-PATH_LIB = $(PATH_SRCS)lib/
+PATH_MONGOOSE = $(PATH_SRCS)mongoose/
 PATH_REQUEST = $(PATH_SRCS)request/
 PATH_LOG = $(PATH_SRCS)log/
 PATH_CONTROLLER = $(PATH_SRCS)controller/
@@ -17,7 +17,7 @@ PATH_UTILS = $(PATH_SRCS)utils/
 PATH_OBJS = ./objs/
 
 SRCS =	$(PATH_MAIN)main.c \
-		$(PATH_LIB)mongoose.c \
+		$(PATH_MONGOOSE)mongoose.c \
 		$(PATH_REQUEST)request.c \
 		$(PATH_ROUTER)router.c \
 		$(PATH_LOG)log.c \
@@ -37,7 +37,7 @@ $(PATH_OBJS)%.o: $(PATH_SRCS)%.c
 	@mkdir -p $(PATH_OBJS)
 	@mkdir -p $(PATH_OBJS)server
 	@mkdir -p $(PATH_OBJS)router
-	@mkdir -p $(PATH_OBJS)lib
+	@mkdir -p $(PATH_OBJS)mongoose
 	@mkdir -p $(PATH_OBJS)request
 	@mkdir -p $(PATH_OBJS)log
 	@mkdir -p $(PATH_OBJS)controller
@@ -55,28 +55,3 @@ fclean: clean
 re: fclean all
 
 .PHONY: all fclean clean re
-
-# SRCS =	main.c \
-# 		mongoose.c \
-# 		router.c \
-
-# OBJS =	${SRCS:.c=.o}
-
-# CC =	gcc
-# RM =	rm -f
-
-# NAME =	api_server
-# INCLUDE = -I ./include
-
-# ${NAME}:	${OBJS}
-# 	${CC} ${INCLUDE} -o ${NAME} ${OBJS}
-
-# all:	${NAME}
-
-# clean:
-# 	${RM} ${OBJS}
-
-# fclean:		clean
-# 	${RM} ${NAME}
-
-# re:		fclean all
