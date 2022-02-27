@@ -1,37 +1,49 @@
-#include "cli.h"
+#include <cli.h>
 
 int	nline = 0;
+FILE	*log_file;
 
 int	get_nline(void)
 {
-	FILE	*log;
 	char	line[1024];
 	int		quantity_line = 0;
 
-	log = fopen("../API/log/log.log", "r");
-
-	if(log)
+	log_file = fopen("../API/log/log.log", "r");
+	if(log_file)
 	{
-		while(fgets(line, 1024, log))
+		while(fgets(line, 1024, log_file))
 			quantity_line++;
 	}
-	fclose(log);
+	fclose(log_file);
+	log_file = 0;
 	return (quantity_line);
+}
+
+void	free_buffer(char **key_value)
+{
+	size_t	index = 0;
+
+	while (key_value[index])
+	{
+		free(key_value[index]);
+		index++;
+	}
+	free(key_value);
 }
 
 void	show_table(void)
 {
 	FILE	*log;
 	char	line[1024];
-	char	**key_value;	//key: value
+	char	**key_value;
 
 	log = fopen("../API/log/log.log", "r");
 
 	if(log)
 	{
-		printf("");
-		printf(" Method\t\t Path\t\t Time Request\t\t Status\n");
-		printf(" _____________________________________________________________\n");
+		printf("_______________________________________________________________\n\n");
+		printf("|    Method\t|     Path\t|      Time Request\t|Status|\n");
+		printf("_______________________________________________________________\n\n");
 		while(fgets(line, 1024, log))
 		{
 			if(line[0] == '\n')
@@ -43,6 +55,7 @@ void	show_table(void)
 				line[strlen(line) - 1] = 0;
 			key_value = ft_split(line, ':');
 			printf("|%s\t\t", key_value[1]);
+			free_buffer(key_value);
 		}
 	}
 	fclose(log);
@@ -65,8 +78,16 @@ void	update_table(void)
 	}
 }
 
+void	logout(int signal)
+{
+	if (log_file)
+		fclose(log_file);
+	exit(EXIT_SUCCESS);
+}
+
 int	main(int argc, char *argv[])
 {
+	signal(SIGINT, logout);
 	while(true)
 	{
 		update_table();

@@ -1,4 +1,4 @@
-#include "../cli.h"
+#include <cli.h>
 
 static size_t	ft_get_nbrstr(char *s, char c)
 {

@@ -6,7 +6,7 @@
 /*   By: lfilipe- <lfilipe-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/23 13:16:08 by lfilipe-          #+#    #+#             */
-/*   Updated: 2022/02/27 14:42:54 by lfilipe-         ###   ########.fr       */
+/*   Updated: 2022/02/27 17:17:48 by lfilipe-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	router(struct mg_connection *connection,
 	else
 	{
 		char	**matrix;
-		int		index = 0;
+		size_t		index = 0;
 		matrix = ft_split(request->method.ptr, ' ');
 
 		mg_http_reply(connection, HTTP_NOT_FOUND, NULL, "{\"status\":\"%d\"}",

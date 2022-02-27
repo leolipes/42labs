@@ -1,1 +1,18 @@
-{"activity":"Go on a fishing trip with some friends","type":"social","participants":3,"price":0.4,"link":"","key":"3149232","accessibility":0.4}
+{
+    "error": false,
+    "category": "Misc",
+    "type": "twopart",
+    "setup": "I WRITE MY JOKES IN CAPITALS.",
+    "delivery": "THIS ONE WAS WRITTEN IN PARIS.",
+    "flags": {
+        "nsfw": false,
+        "religious": false,
+        "political": false,
+        "racist": false,
+        "sexist": false,
+        "explicit": false
+    },
+    "id": 78,
+    "safe": true,
+    "lang": "en"
+}
