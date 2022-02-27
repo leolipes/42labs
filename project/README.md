@@ -33,9 +33,11 @@ program from 42 São Paulo.
 - Whimsical:
 
 **API:**
+
 ![Flowchart API](img/flowchart_api.png)
 
 **CLI:**
+
 ![Flowchart CLI](img/flowchart_cli.png)
 
 ## **Libraries**
