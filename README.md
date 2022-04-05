@@ -1,62 +1,114 @@
-# Processo Seletivo 42 São Paulo: 42Labs 2ª edição
+# 42Labs (Selective Process)
 
-Nesse desafio você vai construir duas aplicações utilizando C: uma [API](#) e
-uma aplicação de interface de linha de comando([CLI](#)).
+The project consists of a week creating a REST API and a CLI using the
+C programming language where creativity is the limit. This challenge is
+an opportunity to take the first step into the market with the 42Labs
+program from 42 São Paulo.
 
-## API
+## **Contents**
 
-![Cliente e API REST se comunicando por Requests e
-Responses](./img/01_client_api.png)
+- [Tools](#tools)
 
-A API que você irá construir poderá lidar com dados com formato e origem de sua
-escolha. Um exemplo seria fazer uma API que retorna o conteúdo de postagens de
-um blog.
+- [API](#api)
 
-É necessário:
+- [CLI](#cli)
 
-- Que sua API esteja de acordo com o modelo de arquitetura _REST_
-- Implementar pelo menos uma requisição do método `GET` no path `/`, retornando
-  alguma informação no formato JSON e status HTTP `200 OK`
-- Registrar logs em um arquivo; guardando informações sobre todas as requisições
-  e respostas(e.g. horário da requisição, método, etc.)
-  
-## Aplicação CLI
+- [Collaborators](#collaborators)
 
-![Exemplo CLI](./img/02_cli_example.png)
+- [Bibliography](#bibliography)
 
-A aplicação CLI que você irá construir deverá consumir e processar o arquivo de
-logs gerado pela API REST. 
 
-É necessário:
+## **Tools**
 
-- Que sua aplicação agrupe os dados dos logs e os mostrem de maneira legível no terminal
-- Que os dados possibilitem uma análise sobre as requisições
+### **Development tools:**
 
-## O que será avaliado
+- [Development tools](https://www.a2hosting.com/kb/developer-corner/testing-and-development/installing-development-tools-on-an-unmanaged-server) such as git, gcc and make
 
-- Código bem escrito e limpo
-- A documentação do seu código
-- Quais ferramentas foram usadas e por quê
-- Sua criatividade e capacidade de lidar com problemas diferentes
-- Se seu projeto está alinhado com o que foi proposto
+### **To install development tools in Ubuntu:**
+- apt-get install build-essential
 
-## O mínimo necessário
 
-- README.md com documentação contendo informações do projeto.
+### **To make a flowchart:**
 
-## Bônus
+- Whimsical:
 
-Os seguintes itens não são obrigatórios, porém dão mais valor ao seu trabalho.
-Os destacados são mais significativos para nós.
+**API:**
 
-- **Testes**
-- **Conteinerização das aplicações**
-- **API com conexão a um banco de dados(SQL ou NoSQL, sua escolha)**
-- **Parseamento de argumentos UNIX-like, podendo filtrar ou alterar comportamentos da aplicação(CLI)**
-- Cache básico(caso sua API se comunique com banco de dados)
-- Autenticação e autorização(API)
-- Lidar com requests simultâneos(API)
-- Cuidados especiais com otimização, padrões, entre outros
-- Pipelines de CI/CD
-- Utilização de algum serviço de computação na nuvem
-- Uso de ferramentas externas para diagramação e/ou planejamento das etapas de desenvolvimento
+![Flowchart API](img/flowchart_api.png)
+
+**CLI:**
+
+![Flowchart CLI](img/flowchart_cli.png)
+
+## **Libraries**
+
+### **Mongoose:**
+
+### Installation:
+- Access [Mongoose](https://mongoose.ws/documentation/) to access the User Guide.
+
+### **Libcurl:**
+
+### Installation:
+
+- apt-get install libcurl4-openssl-dev
+
+### Flags for compilation:
+ - -lcurl
+
+### **Test tools**
+
+VS Code [Thunder Client](https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client) extension.
+
+## **API:**
+
+>API will get you out of boredom or probably make you laugh
+
+### **How to use:**
+
+### To make a Request:
+
+Commands:
+- make run
+- Acess [localhost](http://www.localhost:8000)
+
+**GET:** /
+- return: Activity suggestions.
+
+**GET:** /joke
+- return: Random Jokes.
+
+## **CLI (Command Line Interface)**
+
+> CLI will show real-time log file data.
+
+### **How to use:**
+- make run
+
+## **Collaborators:**
+
+- Flavio (flda-sil)
+
+- Gabriel (gsilva-v)
+
+- Gustavo (gusalves)
+
+## **Bibliography:**
+
+[A anatomia de uma API RESTful](https://thiagolima.blog.br/a-anatomia-de-uma-api-restful-80df2aca158e)
+
+[Qual é a diferença entre HTTP e HTTPS?](https://www.alura.com.br/artigos/qual-e-diferenca-entre-http-e-https)
+
+[API REST: o que é e como montar uma API sem complicação?](https://blog.betrybe.com/desenvolvimento-web/api-rest-tudo-sobre/)
+
+[Afinal, o que é JSON e para que ele serve?](https://rockcontent.com/br/blog/json/#:~:text=O%20arquivo%20.,utiliz%C3%A1%2Dlos%20rapidamente%20na%20aplica%C3%A7%C3%A3o.)
+
+[URI vs. URL: What’s the Difference?](https://blog.hubspot.com/website/uri-vs-url)
+
+[Big List of Free and Open Public APIs (No Auth Needed)](https://mixedanalytics.com/blog/list-actually-free-open-no-auth-needed-apis/)
+
+[O que é um endpoint: Como proteger este tipo de dispositivo](https://blog.milvus.com.br/o-que-e-endpoint/)
+
+[Libcurl](https://curl.se/libcurl/c/libcurl-tutorial.html)
+
+[Mongoose Library](https://mongoose.ws/documentation/#introduction)
