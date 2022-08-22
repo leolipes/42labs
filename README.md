@@ -40,16 +40,16 @@ program from 42 São Paulo.
 
 ![Flowchart CLI](img/flowchart_cli.png)
 
-## **Libraries**
+# **Libraries**
 
 ### **Mongoose:**
 
-### Installation:
+#### - Installation:
 - Access [Mongoose](https://mongoose.ws/documentation/) to access the User Guide.
 
 ### **Libcurl:**
 
-### Installation:
+#### - Installation:
 
 - apt-get install libcurl4-openssl-dev
 
